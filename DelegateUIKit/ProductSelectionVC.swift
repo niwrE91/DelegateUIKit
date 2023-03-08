@@ -59,45 +59,45 @@ class ProductSelectionVC: UIViewController {
         iPadButton.configuration?.title = "iPad"
         iPadButton.configuration?.image = UIImage(systemName: "iPad")
         iPadButton.configuration?.imagePadding = 8
-        iPadButton.configuration?.baseForegroundColor = .systemTeal
-        iPadButton.configuration?.baseBackgroundColor = .systemTeal
+        iPadButton.configuration?.baseForegroundColor = .systemCyan
+        iPadButton.configuration?.baseBackgroundColor = .systemCyan
         iPadButton.addTarget(self, action: #selector(iPhoneButtonTapped), for: .touchUpInside)
         
         appleWatchButton.configuration = .tinted()
         appleWatchButton.configuration?.title = "Apple Watch"
         appleWatchButton.configuration?.image = UIImage(systemName: "AppleWatch")
         appleWatchButton.configuration?.imagePadding = 8
-        appleWatchButton.configuration?.baseForegroundColor = .systemIndigo
-        appleWatchButton.configuration?.baseBackgroundColor = .systemIndigo
+        appleWatchButton.configuration?.baseForegroundColor = .systemTeal
+        appleWatchButton.configuration?.baseBackgroundColor = .systemTeal
         appleWatchButton.addTarget(self, action: #selector(iPhoneButtonTapped), for: .touchUpInside)
         
         macBookButton.configuration = .tinted()
         macBookButton.configuration?.title = "MacBook Pro"
         macBookButton.configuration?.image = UIImage(systemName: "MacBook")
         macBookButton.configuration?.imagePadding = 8
-        macBookButton.configuration?.baseForegroundColor = .systemMint
-        macBookButton.configuration?.baseBackgroundColor = .systemMint
+        macBookButton.configuration?.baseForegroundColor = .systemIndigo
+        macBookButton.configuration?.baseBackgroundColor = .systemIndigo
         macBookButton.addTarget(self, action: #selector(iPhoneButtonTapped), for: .touchUpInside)
         
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            iPhoneButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            iPhoneButton.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 3*padding),
             iPhoneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             iPhoneButton.heightAnchor.constraint(equalToConstant: 50),
             iPhoneButton.widthAnchor.constraint(equalToConstant: 200),
             
-            iPadButton.bottomAnchor.constraint(equalTo: iPhoneButton.topAnchor, constant: padding),
+            iPadButton.topAnchor.constraint(equalTo: iPhoneButton.bottomAnchor, constant: padding),
             iPadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             iPadButton.heightAnchor.constraint(equalToConstant: 50),
             iPadButton.widthAnchor.constraint(equalToConstant: 200),
             
-            appleWatchButton.bottomAnchor.constraint(equalTo: iPhoneButton.topAnchor, constant: padding),
+            appleWatchButton.topAnchor.constraint(equalTo: iPadButton.bottomAnchor, constant: padding),
             appleWatchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             appleWatchButton.heightAnchor.constraint(equalToConstant: 50),
             appleWatchButton.widthAnchor.constraint(equalToConstant: 200),
             
-            macBookButton.bottomAnchor.constraint(equalTo: iPhoneButton.topAnchor, constant: padding),
+            macBookButton.topAnchor.constraint(equalTo: appleWatchButton.bottomAnchor, constant: padding),
             macBookButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             macBookButton.heightAnchor.constraint(equalToConstant: 50),
             macBookButton.widthAnchor.constraint(equalToConstant: 200),
