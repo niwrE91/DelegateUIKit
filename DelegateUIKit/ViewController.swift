@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+//the viewController has to be conform to the Delegete we want to listen to
+class ViewController: UIViewController, ProductSelectionDelegate {
     
     let productImageView = UIImageView()
     let productNameLabel = UILabel()
@@ -18,8 +19,16 @@ class ViewController: UIViewController {
         setupUI()
     }
 
+    //this method knows what to do and is listening to the event (button click)
+    func didSelectProduct(name: String, imageName: String) {
+        productNameLabel.text = name
+        productImageView.image = UIImage(named: imageName)
+    }
+    
     @objc func presentProductSelectionVC() {
         let destinationVC = ProductSelectionVC()
+        //subscibes the delegate to him self
+        destinationVC.delegate = self
         
         destinationVC.modalPresentationStyle = .pageSheet
         destinationVC.sheetPresentationController?.detents = [.medium()]
@@ -37,6 +46,7 @@ class ViewController: UIViewController {
         chooseProductButton.translatesAutoresizingMaskIntoConstraints = false
         
         productImageView.image = UIImage(named: "allProducts")
+        productImageView.contentMode = .scaleAspectFit
         
         productNameLabel.text = "Apple Product Line"
         productNameLabel.textAlignment = .center
@@ -52,7 +62,7 @@ class ViewController: UIViewController {
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            productImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            productImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             productImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             productImageView.heightAnchor.constraint(equalToConstant: 225),
             productImageView.widthAnchor.constraint(equalToConstant: 300),
