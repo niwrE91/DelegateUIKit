@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "23w0190-apple-phobio-family 2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "23w0190-apple-phobio-family 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "23w0190-apple-phobio-family.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
