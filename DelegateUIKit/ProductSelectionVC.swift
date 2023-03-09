@@ -8,7 +8,8 @@
 import UIKit
 
 //This Protocol tells, the Controller who subscribed to this protocal, what is to do
-protocol ProductSelectionDelegate {
+//also this protocol is restraint to an AnyObject so that you can make the delegate weak to prevent retain cycle
+protocol ProductSelectionDelegate: AnyObject {
     func didSelectProduct(name: String, imageName: String)
 }
 
@@ -21,7 +22,7 @@ class ProductSelectionVC: UIViewController {
     let clearButton = UIButton()
     
     //tells the viewController what the delegate is
-    var delegate: ProductSelectionDelegate?
+    weak var delegate: ProductSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

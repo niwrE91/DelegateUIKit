@@ -8,7 +8,7 @@
 import UIKit
 
 //the viewController has to be conform to the Delegete we want to listen to
-class ViewController: UIViewController, ProductSelectionDelegate {
+class ViewController: UIViewController {
     
     let productImageView = UIImageView()
     let productNameLabel = UILabel()
@@ -17,12 +17,6 @@ class ViewController: UIViewController, ProductSelectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-
-    //this method knows what to do and is listening to the event (button click)
-    func didSelectProduct(name: String, imageName: String) {
-        productNameLabel.text = name
-        productImageView.image = UIImage(named: imageName)
     }
     
     @objc func presentProductSelectionVC() {
@@ -78,6 +72,14 @@ class ViewController: UIViewController, ProductSelectionDelegate {
             chooseProductButton.widthAnchor.constraint(equalToConstant: 260)
         ])
     }
-
+    
 }
 
+//here is a extension for ViewController and is conform to the ProductSelectionDelegate so that the Protocoll didSelectProduct can do his work here.
+//this method knows what to do and is listening to the event (button click)
+extension ViewController: ProductSelectionDelegate {
+    func didSelectProduct(name: String, imageName: String) {
+        productNameLabel.text = name
+        productImageView.image = UIImage(named: imageName)
+    }
+}
